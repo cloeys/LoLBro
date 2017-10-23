@@ -11,9 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async-request": "^1.2.0",
+    "bluebird": "^3.5.1",
     "dotenv": "^4.0.0",
     "kayn": "^0.2.6",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

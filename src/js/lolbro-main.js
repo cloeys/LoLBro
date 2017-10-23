@@ -7,17 +7,24 @@ import {
     BasicJSCache,
     RedisCache,
 } from 'kayn';
-
+const summoner = require('./summoner');
 const apiKey = process.env.RIOT_API_KEY;
 
 const kayn = Kayn(apiKey)({
     region: 'euw'
-  });
+});
 
-const querySummoner = async (name) => {
-    const summoner = await kayn.Summoner.by.name(name);
+let summonerName;
+let summonerDiv;
+let getSummonerButton;
 
-    console.log(summoner);
-};
+window.addEventListener('DOMContentLoaded', _ => {
+    console.log('loaded');
+    summonerName = document.getElementById('summonerName');
+    summonerDiv = document.getElementById('summonerDiv');
+    getSummonerButton = document.getElementById('getSummonerButton');
 
-querySummoner('superchrisbros');
+    getSummonerButton.addEventListener('click', evt => {
+        summoner.showSummoner(document, kayn, summonerName.value, summonerDiv);
+    });
+});
